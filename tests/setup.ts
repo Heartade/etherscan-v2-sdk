@@ -1,5 +1,5 @@
 // Global test setup
-import { _beforeAll, vi } from 'vitest';
+import { vi } from 'vitest';
 
 // Mock fetch globally
 global.fetch = vi.fn();
@@ -305,7 +305,7 @@ export const mockResponses = {
         TokenAddress: TEST_ADDRESSES.CONTRACT,
         TokenName: 'Test NFT',
         TokenSymbol: 'TNFT',
-        TokenId: '1',
+        TokenQuantity: '1',
       },
     ],
   },
@@ -394,7 +394,9 @@ export const mockResponses = {
 
 // Helper to mock fetch response
 export function mockFetchResponse(response: any, status = 200, contentType = 'application/json') {
-  const responseText = contentType.includes('json') ? JSON.stringify(response) : (response.result || response);
+  const responseText = contentType.includes('json')
+    ? JSON.stringify(response)
+    : response.result || response;
   (global.fetch as any).mockResolvedValueOnce({
     ok: status >= 200 && status < 300,
     status,

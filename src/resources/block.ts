@@ -1,6 +1,15 @@
 import { z } from 'zod';
 import { BaseModule } from './base';
-import { NumberStringSchema, BlockRewardSchema, BlockCountdownSchema, DailyBlockSizeSchema, DailyBlockTimeSchema, DailyBlockCountSchema, DailyBlockRewardsSchema, DailyUncleBlockCountSchema } from '../core/types';
+import {
+  NumberStringSchema,
+  BlockRewardSchema,
+  BlockCountdownSchema,
+  DailyBlockSizeSchema,
+  DailyBlockTimeSchema,
+  DailyBlockCountSchema,
+  DailyBlockRewardsSchema,
+  DailyUncleBlockCountSchema,
+} from '../core/types';
 import { Validators } from '../core/validators';
 
 export class Block extends BaseModule {
@@ -61,10 +70,10 @@ export class Block extends BaseModule {
   }
 
   /**
-    * Get Daily Average Block Time
-    * Retrieves the daily average block time over a date range.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Daily Average Block Time
+   * Retrieves the daily average block time over a date range.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getDailyAvgBlockSize(params: {
     /** Parameter startdate */
     startdate: string;
@@ -86,10 +95,10 @@ export class Block extends BaseModule {
   }
 
   /**
-    * Get Daily Uncle Block Count and Rewards
-    * Retrieves the daily uncle block count and rewards over a date range.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Daily Uncle Block Count and Rewards
+   * Retrieves the daily uncle block count and rewards over a date range.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getDailyBlockCount(params: {
     /** Parameter startdate */
     startdate: string;
@@ -111,10 +120,10 @@ export class Block extends BaseModule {
   }
 
   /**
-    * Get Daily Block Rewards
-    * Retrieves the daily block rewards over a date range.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Daily Block Rewards
+   * Retrieves the daily block rewards over a date range.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getDailyBlockRewards(params: {
     /** Parameter startdate */
     startdate: string;
@@ -136,10 +145,10 @@ export class Block extends BaseModule {
   }
 
   /**
-    * Get Daily Average Block Time
-    * Retrieves the daily average time taken to successfully mine a block.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Daily Average Block Time
+   * Retrieves the daily average time taken to successfully mine a block.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getDailyAvgBlockTime(params: {
     /** Parameter startdate */
     startdate: string;
@@ -161,10 +170,10 @@ export class Block extends BaseModule {
   }
 
   /**
-    * Get Daily Uncle Block Count and Rewards
-    * Returns the daily count of Uncle blocks mined and their associated rewards.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Daily Uncle Block Count and Rewards
+   * Returns the daily count of Uncle blocks mined and their associated rewards.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getDailyUncleBlockCount(params: {
     /** Parameter startdate */
     startdate: string;

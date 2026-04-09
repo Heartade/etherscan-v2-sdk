@@ -204,7 +204,13 @@ describe('Performance Benchmarks', () => {
       const startTime = performance.now();
 
       // Make requests that should be rate limited
-      const addresses = [TEST_ADDRESSES.VITALIK, TEST_ADDRESSES.CONTRACT, TEST_ADDRESSES.ZERO, TEST_ADDRESSES.VITALIK, TEST_ADDRESSES.CONTRACT];
+      const addresses = [
+        TEST_ADDRESSES.VITALIK,
+        TEST_ADDRESSES.CONTRACT,
+        TEST_ADDRESSES.ZERO,
+        TEST_ADDRESSES.VITALIK,
+        TEST_ADDRESSES.CONTRACT,
+      ];
       for (let i = 0; i < requests; i++) {
         await slowClient.account.getBalance(addresses[i]);
       }

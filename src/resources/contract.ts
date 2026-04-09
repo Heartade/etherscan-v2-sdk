@@ -250,7 +250,8 @@ export class Contract extends BaseModule {
     address: string;
   }): Promise<z.infer<typeof ABISchema>>;
   async getAbi(addressOrParams: string | { address: string }) {
-    const params = typeof addressOrParams === 'string' ? { address: addressOrParams } : addressOrParams;
+    const params =
+      typeof addressOrParams === 'string' ? { address: addressOrParams } : addressOrParams;
     Validators.addressSchema(params.address, 'address');
 
     return this.transport.get(

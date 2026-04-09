@@ -13,7 +13,12 @@ export class EtherscanError extends Error {
 export class APIError extends EtherscanError {
   private rawResult: any;
 
-  constructor(message: string, result: any, status: number = 200, code: string = 'API_LOGIC_ERROR') {
+  constructor(
+    message: string,
+    result: any,
+    status: number = 200,
+    code: string = 'API_LOGIC_ERROR'
+  ) {
     // Sanitize message
     const sanitized = APIError.sanitizeMessage(message);
     super(`Etherscan API Error: ${sanitized}`, status, code);
@@ -27,7 +32,11 @@ export class APIError extends EtherscanError {
 
     // Remove potential API keys - target 32-64 char hex strings that appear near API-related keywords
     const lowerMessage = message.toLowerCase();
-    if (lowerMessage.includes('apikey') || lowerMessage.includes('key') || lowerMessage.includes('token')) {
+    if (
+      lowerMessage.includes('apikey') ||
+      lowerMessage.includes('key') ||
+      lowerMessage.includes('token')
+    ) {
       // More aggressive redaction when API-related keywords are present
       sanitized = sanitized.replace(/[a-fA-F0-9]{32,64}/g, '[REDACTED]');
     } else {

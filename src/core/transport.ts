@@ -1,7 +1,13 @@
 import Bottleneck from 'bottleneck';
 import { z } from 'zod';
 import { createHash } from 'crypto';
-import { APIError, EtherscanError, RateLimitError, ValidationError, PlanUpgradeRequired } from './errors';
+import {
+  APIError,
+  EtherscanError,
+  RateLimitError,
+  ValidationError,
+  PlanUpgradeRequired,
+} from './errors';
 import { ChainId } from './types';
 import { LRUCache, RequestDeduplicator, InterceptorManager } from './cache';
 
@@ -10,7 +16,12 @@ const V2_ENDPOINT = 'https://api.etherscan.io/v2/api';
 class GlobalRateLimiterRegistry {
   private static limiters = new Map<string, { limiter: Bottleneck; refCount: number }>();
 
-  static getLimiter(apiKey: string, reqPerSec: number, reservoir: number = 100000, reservoirRefreshInterval: number = 24 * 60 * 60 * 1000): Bottleneck {
+  static getLimiter(
+    apiKey: string,
+    reqPerSec: number,
+    reservoir: number = 100000,
+    reservoirRefreshInterval: number = 24 * 60 * 60 * 1000
+  ): Bottleneck {
     // Hash API key for privacy
     const keyHash = this.hashKey(apiKey);
 
@@ -93,7 +104,12 @@ export class Transport {
     this.retryDelay = retryDelay;
 
     // Use shared rate limiter to prevent bypass
-    this.limiter = GlobalRateLimiterRegistry.getLimiter(apiKey, reqPerSec, reservoir, reservoirRefreshInterval);
+    this.limiter = GlobalRateLimiterRegistry.getLimiter(
+      apiKey,
+      reqPerSec,
+      reservoir,
+      reservoirRefreshInterval
+    );
 
     // Initialize reliability features
     this.cache = new LRUCache();

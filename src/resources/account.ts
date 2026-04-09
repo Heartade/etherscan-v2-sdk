@@ -16,9 +16,9 @@ import { Validators } from '../core/validators';
 
 export class Account extends BaseModule {
   /**
-    * Get Balance
-    * Get the balance of an address, or balances of multiple addresses.
-    */
+   * Get Balance
+   * Get the balance of an address, or balances of multiple addresses.
+   */
   async getBalance(address: string, tag?: string): Promise<bigint | Record<string, bigint>>;
   async getBalance(params: {
     /** The address(es) to query, like `0xfefefefefefefefefefefefefefefefefefefefe`. Up to 20 addresses can be queried, separated by commas. */
@@ -26,10 +26,15 @@ export class Account extends BaseModule {
     /** Use `latest` for the last block number of the chain. Also accepts a specific block number in hex format, like `0x10d4f` up to the last 128 blocks. For historical balances, use the [Historical Balance](/api-reference/endpoint/balancehistory) endpoint. */
     tag?: string;
   }): Promise<bigint | Record<string, bigint>>;
-  async getBalance(addressOrParams: string | {
-    address: string;
-    tag?: string;
-  }, tag?: string): Promise<bigint | Record<string, bigint>> {
+  async getBalance(
+    addressOrParams:
+      | string
+      | {
+          address: string;
+          tag?: string;
+        },
+    tag?: string
+  ): Promise<bigint | Record<string, bigint>> {
     let params: { address?: string; tag?: string };
 
     if (typeof addressOrParams === 'string') {
@@ -38,7 +43,10 @@ export class Account extends BaseModule {
       params = addressOrParams;
     }
 
-    const addresses = params.address!.split(',').map(addr => addr.trim()).filter(addr => addr.length > 0);
+    const addresses = params
+      .address!.split(',')
+      .map(addr => addr.trim())
+      .filter(addr => addr.length > 0);
 
     if (addresses.length === 1) {
       // Single address - use balance endpoint
@@ -71,10 +79,12 @@ export class Account extends BaseModule {
           address: addresses.join(','),
           tag: params.tag || 'latest',
         },
-        z.array(z.object({
-          account: z.string(),
-          balance: BigIntSchema,
-        }))
+        z.array(
+          z.object({
+            account: z.string(),
+            balance: BigIntSchema,
+          })
+        )
       );
 
       // Convert array to record
@@ -100,10 +110,15 @@ export class Account extends BaseModule {
     /** Use `latest` for the last block number of the chain. Also accepts a specific block number in hex format, like `0x10d4f` up to the last 128 blocks. */
     tag?: string;
   }): Promise<Record<string, bigint>>;
-  async getBalances(addressesOrParams: string[] | {
-    addresses: string[];
-    tag?: string;
-  }, tag?: string): Promise<Record<string, bigint>> {
+  async getBalances(
+    addressesOrParams:
+      | string[]
+      | {
+          addresses: string[];
+          tag?: string;
+        },
+    tag?: string
+  ): Promise<Record<string, bigint>> {
     let params: { addresses: string[]; tag?: string };
 
     if (Array.isArray(addressesOrParams)) {
@@ -133,10 +148,12 @@ export class Account extends BaseModule {
         address: addressString,
         tag: params.tag || 'latest',
       },
-      z.array(z.object({
-        account: z.string(),
-        balance: BigIntSchema,
-      }))
+      z.array(
+        z.object({
+          account: z.string(),
+          balance: BigIntSchema,
+        })
+      )
     );
 
     // Convert array to record
@@ -149,10 +166,10 @@ export class Account extends BaseModule {
   }
 
   /**
-    * Get Historical Native Balance for an Address
-    * Retrieves the balance of a specified address at a given block height.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Historical Native Balance for an Address
+   * Retrieves the balance of a specified address at a given block height.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getBalanceHistory(params: {
     /** The address to query, like `0x4838B106FCe9647Bdf1E7877BF73cE8B0BAD5f97`. */
     address: string;

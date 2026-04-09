@@ -113,110 +113,120 @@ export const StatusSchema = <T>(resultSchema: z.ZodType<T>) =>
     result: resultSchema,
   });
 
-export const TransactionSchema = z.object({
-  blockNumber: z.string(),
-  timeStamp: z.string(),
-  hash: z.string(),
-  nonce: z.string(),
-  blockHash: z.string(),
-  transactionIndex: z.string(),
-  from: z.string(),
-  to: NullableString,
-  value: BigIntSchema,
-  gas: z.string(),
-  gasPrice: BigIntSchema,
-  isError: z.string(),
-  txreceipt_status: z.string(),
-  input: z.string(),
-  contractAddress: NullableString,
-  cumulativeGasUsed: z.string(),
-  gasUsed: z.string(),
-  confirmations: z.string(),
-}).passthrough();
+export const TransactionSchema = z
+  .object({
+    blockNumber: z.string(),
+    timeStamp: z.string(),
+    hash: z.string(),
+    nonce: z.string(),
+    blockHash: z.string(),
+    transactionIndex: z.string(),
+    from: z.string(),
+    to: NullableString,
+    value: BigIntSchema,
+    gas: z.string(),
+    gasPrice: BigIntSchema,
+    isError: z.string(),
+    txreceipt_status: z.string(),
+    input: z.string(),
+    contractAddress: NullableString,
+    cumulativeGasUsed: z.string(),
+    gasUsed: z.string(),
+    confirmations: z.string(),
+  })
+  .passthrough();
 
-export const TokenTransactionSchema = z.object({
-  blockNumber: z.string(),
-  timeStamp: z.string(),
-  hash: z.string(),
-  nonce: z.string(),
-  blockHash: z.string(),
-  from: z.string(),
-  contractAddress: z.string(),
-  to: z.string(),
-  value: BigIntSchema,
-  tokenName: z.string(),
-  tokenSymbol: z.string(),
-  tokenDecimal: z.string(),
-  transactionIndex: z.string(),
-  gas: z.string(),
-  gasPrice: BigIntSchema,
-  gasUsed: z.string(),
-  cumulativeGasUsed: z.string(),
-  input: z.string(),
-  confirmations: z.string(),
-}).passthrough();
+export const TokenTransactionSchema = z
+  .object({
+    blockNumber: z.string(),
+    timeStamp: z.string(),
+    hash: z.string(),
+    nonce: z.string(),
+    blockHash: z.string(),
+    from: z.string(),
+    contractAddress: z.string(),
+    to: z.string(),
+    value: BigIntSchema,
+    tokenName: z.string(),
+    tokenSymbol: z.string(),
+    tokenDecimal: z.string(),
+    transactionIndex: z.string(),
+    gas: z.string(),
+    gasPrice: BigIntSchema,
+    gasUsed: z.string(),
+    cumulativeGasUsed: z.string(),
+    input: z.string(),
+    confirmations: z.string(),
+  })
+  .passthrough();
 
-export const NFTTransactionSchema = z.object({
-  blockNumber: z.string(),
-  timeStamp: z.string(),
-  hash: z.string(),
-  nonce: z.string(),
-  blockHash: z.string(),
-  from: z.string(),
-  contractAddress: z.string(),
-  to: z.string(),
-  tokenID: z.string(),
-  tokenName: z.string(),
-  tokenSymbol: z.string(),
-  tokenDecimal: z.string(),
-  transactionIndex: z.string(),
-  gas: z.string(),
-  gasPrice: BigIntSchema,
-  gasUsed: z.string(),
-  cumulativeGasUsed: z.string(),
-  input: z.string(),
-  confirmations: z.string(),
-}).passthrough();
+export const NFTTransactionSchema = z
+  .object({
+    blockNumber: z.string(),
+    timeStamp: z.string(),
+    hash: z.string(),
+    nonce: z.string(),
+    blockHash: z.string(),
+    from: z.string(),
+    contractAddress: z.string(),
+    to: z.string(),
+    tokenID: z.string(),
+    tokenName: z.string(),
+    tokenSymbol: z.string(),
+    tokenDecimal: z.string(),
+    transactionIndex: z.string(),
+    gas: z.string(),
+    gasPrice: BigIntSchema,
+    gasUsed: z.string(),
+    cumulativeGasUsed: z.string(),
+    input: z.string(),
+    confirmations: z.string(),
+  })
+  .passthrough();
 
-export const ERC1155TransactionSchema = z.object({
-  blockNumber: z.string(),
-  timeStamp: z.string(),
-  hash: z.string(),
-  nonce: z.string(),
-  blockHash: z.string(),
-  from: z.string(),
-  contractAddress: z.string(),
-  to: z.string(),
-  tokenID: z.string(),
-  tokenValue: BigIntSchema,
-  tokenName: z.string(),
-  tokenSymbol: z.string(),
-  tokenDecimal: z.string().optional(), // Some ERC1155 tokens don't have decimals
-  transactionIndex: z.string(),
-  gas: z.string(),
-  gasPrice: BigIntSchema,
-  gasUsed: z.string(),
-  cumulativeGasUsed: z.string(),
-  input: z.string(),
-  confirmations: z.string(),
-}).passthrough();
+export const ERC1155TransactionSchema = z
+  .object({
+    blockNumber: z.string(),
+    timeStamp: z.string(),
+    hash: z.string(),
+    nonce: z.string(),
+    blockHash: z.string(),
+    from: z.string(),
+    contractAddress: z.string(),
+    to: z.string(),
+    tokenID: z.string(),
+    tokenValue: BigIntSchema,
+    tokenName: z.string(),
+    tokenSymbol: z.string(),
+    tokenDecimal: z.string().optional(), // Some ERC1155 tokens don't have decimals
+    transactionIndex: z.string(),
+    gas: z.string(),
+    gasPrice: BigIntSchema,
+    gasUsed: z.string(),
+    cumulativeGasUsed: z.string(),
+    input: z.string(),
+    confirmations: z.string(),
+  })
+  .passthrough();
 
-export const InternalTransactionSchema = z.object({
-  blockNumber: z.string(),
-  timeStamp: z.string(),
-  hash: z.string(),
-  from: z.string(),
-  to: NullableString,
-  value: BigIntSchema,
-  contractAddress: NullableString,
-  input: z.string(),
-  type: z.string(),
-  gas: z.string(),
-  gasUsed: z.string(),
-  traceId: z.string(),
-  isError: z.string(),
-  errCode: z.string(),
-}).passthrough();
+export const InternalTransactionSchema = z
+  .object({
+    blockNumber: z.string(),
+    timeStamp: z.string(),
+    hash: z.string(),
+    from: z.string(),
+    to: NullableString,
+    value: BigIntSchema,
+    contractAddress: NullableString,
+    input: z.string(),
+    type: z.string(),
+    gas: z.string(),
+    gasUsed: z.string(),
+    traceId: z.string(),
+    isError: z.string(),
+    errCode: z.string(),
+  })
+  .passthrough();
 
 export const BalanceHistorySchema = z.object({
   account: z.string(),
@@ -230,26 +240,31 @@ export const L2TransactionSchema = TransactionSchema.passthrough();
 // Bridge Transaction Schema (for Polygon/Xdai/BTTC txnbridge endpoint)
 // Based on actual Polygon PoS bridge structure - different from standard transactions
 // Includes bridge-specific fields like amount and token information
-export const BridgeTransactionSchema = z.object({
-  hash: z.string(),
-  blockNumber: z.string(),
-  timeStamp: z.string(),
-  from: z.string(),
-  // Bridge-specific fields
-  address: z.string().optional(), // Recipient address
-  amount: z.string().optional().transform(val => {
-    if (!val) return undefined;
-    try {
-      return BigInt(val);
-    } catch {
-      return undefined;
-    }
-  }),
-  tokenName: z.string().optional(),
-  symbol: z.string().optional(),
-  contractAddress: z.string().optional(),
-  divisor: z.string().optional(),
-}).passthrough();
+export const BridgeTransactionSchema = z
+  .object({
+    hash: z.string(),
+    blockNumber: z.string(),
+    timeStamp: z.string(),
+    from: z.string(),
+    // Bridge-specific fields
+    address: z.string().optional(), // Recipient address
+    amount: z
+      .string()
+      .optional()
+      .transform(val => {
+        if (!val) return undefined;
+        try {
+          return BigInt(val);
+        } catch {
+          return undefined;
+        }
+      }),
+    tokenName: z.string().optional(),
+    symbol: z.string().optional(),
+    contractAddress: z.string().optional(),
+    divisor: z.string().optional(),
+  })
+  .passthrough();
 
 export const TransactionStatusSchema = z.object({
   isError: z.string(),
@@ -271,7 +286,7 @@ export const ERC721HoldingSchema = z.object({
   TokenAddress: z.string(),
   TokenName: z.string(),
   TokenSymbol: z.string(),
-  TokenId: z.string(),
+  TokenQuantity: BigIntSchema,
 });
 
 // ERC721 Inventory Item Schema (for inventory endpoint)
@@ -281,11 +296,13 @@ export const ERC721InventoryItemSchema = z.object({
 });
 
 // Block Schema
-export const BlockSchema = z.object({
-  blockNumber: z.string(),
-  timeStamp: z.string(),
-  blockReward: z.string(),
-}).passthrough();
+export const BlockSchema = z
+  .object({
+    blockNumber: z.string(),
+    timeStamp: z.string(),
+    blockReward: z.string(),
+  })
+  .passthrough();
 
 // Block Countdown Schema
 export const BlockCountdownSchema = z.object({
@@ -296,21 +313,23 @@ export const BlockCountdownSchema = z.object({
 });
 
 // Contract Source Code Schema
-export const SourceCodeSchema = z.object({
-  SourceCode: z.string(),
-  ABI: z.string(),
-  ContractName: z.string(),
-  CompilerVersion: z.string(),
-  OptimizationUsed: z.string(),
-  Runs: z.string(),
-  ConstructorArguments: z.string(),
-  EVMVersion: z.string(),
-  Library: z.string(),
-  LicenseType: z.string(),
-  Proxy: z.string(),
-  Implementation: z.string(),
-  SwarmSource: z.string(),
-}).passthrough();
+export const SourceCodeSchema = z
+  .object({
+    SourceCode: z.string(),
+    ABI: z.string(),
+    ContractName: z.string(),
+    CompilerVersion: z.string(),
+    OptimizationUsed: z.string(),
+    Runs: z.string(),
+    ConstructorArguments: z.string(),
+    EVMVersion: z.string(),
+    Library: z.string(),
+    LicenseType: z.string(),
+    Proxy: z.string(),
+    Implementation: z.string(),
+    SwarmSource: z.string(),
+  })
+  .passthrough();
 
 // Gas Oracle Schema
 export const GasOracleSchema = z.object({
@@ -355,18 +374,20 @@ export const StatsSchema = z.object({
 });
 
 // Log Schema
-export const LogSchema = z.object({
-  address: z.string(),
-  topics: z.array(z.string()),
-  data: z.string(),
-  blockNumber: z.string(),
-  timeStamp: z.string(),
-  gasPrice: z.string(),
-  gasUsed: z.string(),
-  logIndex: z.string(),
-  transactionHash: z.string(),
-  transactionIndex: z.string(),
-}).passthrough(); // Allow additional fields like 'removed' from JSON-RPC
+export const LogSchema = z
+  .object({
+    address: z.string(),
+    topics: z.array(z.string()),
+    data: z.string(),
+    blockNumber: z.string(),
+    timeStamp: z.string(),
+    gasPrice: z.string(),
+    gasUsed: z.string(),
+    logIndex: z.string(),
+    transactionHash: z.string(),
+    transactionIndex: z.string(),
+  })
+  .passthrough(); // Allow additional fields like 'removed' from JSON-RPC
 
 // Beacon Withdrawal Schema
 export const BeaconWithdrawalSchema = z.object({
@@ -598,56 +619,64 @@ export const LabelMasterListSchema = z.object({
   lastupdatedtimestamp: z.number(),
 });
 
-export const AddressTagSchema = z.object({
-  address: z.string(),
-  nametag: z.string(),
-  url: z.string().optional(),
-  labels: z.array(z.string()).optional(),
-  labels_slug: z.array(z.string()).optional(),
-}).passthrough(); // Allow additional fields
+export const AddressTagSchema = z
+  .object({
+    address: z.string(),
+    nametag: z.string(),
+    url: z.string().optional(),
+    labels: z.array(z.string()).optional(),
+    labels_slug: z.array(z.string()).optional(),
+  })
+  .passthrough(); // Allow additional fields
 
 // Token Schemas
-export const TokenHolderSchema = z.object({
-  TokenHolderAddress: z.string(),
-  TokenHolderQuantity: BigIntSchema,
-}).passthrough(); // Allow additional fields like TokenHolderAddressType
+export const TokenHolderSchema = z
+  .object({
+    TokenHolderAddress: z.string(),
+    TokenHolderQuantity: BigIntSchema,
+  })
+  .passthrough(); // Allow additional fields like TokenHolderAddressType
 
-export const TokenInfoSchema = z.object({
-  contractAddress: z.string(),
-  tokenName: z.string(),
-  symbol: z.string(),
-  divisor: z.string(),
-  tokenType: z.string(),
-  totalSupply: BigIntSchema,
-  blueCheckmark: z.string(),
-  description: z.string(),
-  website: z.string(),
-  email: z.string(),
-  blog: z.string(),
-  reddit: z.string(),
-  slack: z.string(),
-  facebook: z.string(),
-  twitter: z.string(),
-  bitcointalk: z.string(),
-  github: z.string(),
-  telegram: z.string(),
-  linkedin: z.string(),
-  discord: z.string(),
-  whitepaper: z.string(),
-  tokenPriceUSD: z.string(),
-}).passthrough(); // Allow additional fields like 'image'
+export const TokenInfoSchema = z
+  .object({
+    contractAddress: z.string(),
+    tokenName: z.string(),
+    symbol: z.string(),
+    divisor: z.string(),
+    tokenType: z.string(),
+    totalSupply: BigIntSchema,
+    blueCheckmark: z.string(),
+    description: z.string(),
+    website: z.string(),
+    email: z.string(),
+    blog: z.string(),
+    reddit: z.string(),
+    slack: z.string(),
+    facebook: z.string(),
+    twitter: z.string(),
+    bitcointalk: z.string(),
+    github: z.string(),
+    telegram: z.string(),
+    linkedin: z.string(),
+    discord: z.string(),
+    whitepaper: z.string(),
+    tokenPriceUSD: z.string(),
+  })
+  .passthrough(); // Allow additional fields like 'image'
 
 // Ethereum ABI Schema
 export const ABISchema = z.array(
   z.object({
-    inputs: z.array(
-      z.object({
-        name: z.string(),
-        type: z.string(),
-        indexed: z.boolean().optional(),
-        internalType: z.string().optional(),
-      })
-    ).optional(),
+    inputs: z
+      .array(
+        z.object({
+          name: z.string(),
+          type: z.string(),
+          indexed: z.boolean().optional(),
+          internalType: z.string().optional(),
+        })
+      )
+      .optional(),
     name: z.string().optional(),
     outputs: z
       .array(

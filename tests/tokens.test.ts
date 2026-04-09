@@ -238,7 +238,12 @@ describe('Tokens Module', () => {
         address: TEST_ADDRESSES.VITALIK,
       });
 
-      expect(balance).toEqual(mockResponses.addressNftBalance.result);
+      expect(balance).toEqual(
+        mockResponses.addressNftBalance.result.map(v => ({
+          ...v,
+          TokenQuantity: BigInt(v.TokenQuantity),
+        }))
+      );
     });
   });
 

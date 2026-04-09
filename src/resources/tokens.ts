@@ -12,10 +12,10 @@ import {
 
 export class Tokens extends BaseModule {
   /**
-    * Get Token Holder List by Contract Address
-    * Retrieves the current list of ERC-20 token holders and their token balances.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Token Holder List by Contract Address
+   * Retrieves the current list of ERC-20 token holders and their token balances.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getTokenHolderList(params: {
     /** Parameter contractaddress */
     contractaddress: string;
@@ -35,10 +35,10 @@ export class Tokens extends BaseModule {
   }
 
   /**
-    * Get Top Token Holders
-    * Returns the list of top holders for a specified ERC-20 token.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Top Token Holders
+   * Returns the list of top holders for a specified ERC-20 token.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getTopHolders(params: {
     /** Parameter contractaddress */
     contractaddress: string;
@@ -56,10 +56,10 @@ export class Tokens extends BaseModule {
   }
 
   /**
-    * Get Token Info by ContractAddress
-    * Retrieves project details and social media links for an ERC-20/ERC-721/ERC-1155 token.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Token Info by ContractAddress
+   * Retrieves project details and social media links for an ERC-20/ERC-721/ERC-1155 token.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getTokenInfo(params: {
     /** Parameter contractaddress */
     contractaddress: string;
@@ -75,10 +75,10 @@ export class Tokens extends BaseModule {
   }
 
   /**
-    * Get Token Holder Count by Contract Address
-    * Retrieves the current number of ERC-20 token holders.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Token Holder Count by Contract Address
+   * Retrieves the current number of ERC-20 token holders.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getTokenHolderCount(params: {
     /** Parameter contractaddress */
     contractaddress: string;
@@ -134,10 +134,10 @@ export class Tokens extends BaseModule {
   }
 
   /**
-    * Get Historical ERC20-Token TotalSupply by ContractAddress & BlockNo
-    * Retrieves the historical total supply of an ERC-20 token at a specific block.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Historical ERC20-Token TotalSupply by ContractAddress & BlockNo
+   * Retrieves the historical total supply of an ERC-20 token at a specific block.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getTokenSupplyHistory(params: {
     /** Parameter contractaddress */
     contractaddress: string;
@@ -155,10 +155,10 @@ export class Tokens extends BaseModule {
   }
 
   /**
-    * Get Historical ERC20-Token Account Balance by BlockNo
-    * Retrieves the historical balance of an ERC-20 token for a specific address at a given block.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Historical ERC20-Token Account Balance by BlockNo
+   * Retrieves the historical balance of an ERC-20 token for a specific address at a given block.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getTokenBalanceHistory(params: {
     /** Parameter contractaddress */
     contractaddress: string;
@@ -178,10 +178,10 @@ export class Tokens extends BaseModule {
   }
 
   /**
-    * Get Address ERC721 Token Holding
-    * Retrieves the ERC-721 token balances of an address across all contracts.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Address ERC721 Token Holding
+   * Retrieves the ERC-721 token balances of an address across all contracts.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getAddressTokenBalance(params: {
     /** Parameter address */
     address: string;
@@ -201,10 +201,10 @@ export class Tokens extends BaseModule {
   }
 
   /**
-    * Get Address ERC721 Token Holding
-    * Returns the list of ERC-721 tokens held by an address.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Address ERC721 Token Holding
+   * Returns the list of ERC-721 tokens held by an address.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getAddressTokenNftBalance(params: {
     /** Parameter address */
     address: string;
@@ -224,10 +224,10 @@ export class Tokens extends BaseModule {
   }
 
   /**
-    * Get Address ERC721 Token Inventory by Contract
-    * Retrieves the ERC-721 token inventory of an address for a specific contract.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Address ERC721 Token Inventory by Contract
+   * Retrieves the ERC-721 token inventory of an address for a specific contract.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getAddressTokenNftInventory(params: {
     /** Parameter address */
     address: string;

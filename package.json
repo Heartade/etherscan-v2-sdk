@@ -1,5 +1,5 @@
 {
-  "name": "etherscan-v2-sdk",
+  "name": "@heartade/etherscan-v2-sdk",
   "version": "1.0.2",
   "description": "Production grade Etherscan V2 SDK with Zod validation and Rate Limiting",
   "main": "./dist/index.js",
@@ -16,14 +16,21 @@
     "name": "Roy Philip",
     "url": "https://royphilip.xyz"
   },
+  "contributors": [
+    {
+    "name": "Soohan (Dani) Park",
+    "email": "soohan@heartade.dev",
+    "url": "https://heartade.dev"
+    }
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/royphilip/etherscan-v2-sdk.git"
+    "url": "git+https://github.com/heartade/etherscan-v2-sdk.git"
   },
-  "homepage": "https://github.com/royphilip/etherscan-v2-sdk#readme",
+  "homepage": "https://github.com/heartade/etherscan-v2-sdk#readme",
   "bugs": {
-    "url": "https://github.com/royphilip/etherscan-v2-sdk/issues"
+    "url": "https://github.com/heartade/etherscan-v2-sdk/issues"
   },
   "keywords": [
     "etherscan",

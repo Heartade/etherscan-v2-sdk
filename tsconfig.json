@@ -6,7 +6,8 @@
     "declaration": true,
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["node", "vitest/globals"],
   },
-  "include": ["src"]
+  "include": ["src", "tests"]
 }

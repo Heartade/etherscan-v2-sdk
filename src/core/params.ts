@@ -52,10 +52,7 @@ export interface AddressParams {
  * Paginated query with address
  */
 export interface PaginatedAddressQuery
-  extends AddressParams,
-    BlockRangeParams,
-    PaginationParams,
-    SortParams {}
+  extends AddressParams, BlockRangeParams, PaginationParams, SortParams {}
 
 /**
  * Token transfer query parameters (ERC20/ERC721/ERC1155)

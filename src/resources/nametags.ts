@@ -4,10 +4,10 @@ import { LabelMasterListSchema, AddressTagSchema } from '../core/types';
 
 export class Nametags extends BaseModule {
   /**
-    * Get Label Master List
-    * cURL
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Label Master List
+   * cURL
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getLabelMasterList(params: {
     /** Parameter format */
     format?: string;
@@ -23,10 +23,10 @@ export class Nametags extends BaseModule {
   }
 
   /**
-    * Export Address Tags
-    * cURL
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Export Address Tags
+   * cURL
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getExportAddressTags(params: {
     /** Parameter label */
     label?: string;
@@ -48,10 +48,10 @@ export class Nametags extends BaseModule {
   }
 
   /**
-    * Get Nametag (Metadata) for an Address
-    * Get name tags and metadata for the specified address.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Nametag (Metadata) for an Address
+   * Get name tags and metadata for the specified address.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getAddressTag(params: {
     /** Parameter address */
     address: string;

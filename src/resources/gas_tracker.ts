@@ -1,6 +1,12 @@
 import { z } from 'zod';
 import { BaseModule } from './base';
-import { NumberStringSchema, GasOracleSchema, DailyGasLimitSchema, DailyGasUsedSchema, DailyGasPriceSchema } from '../core/types';
+import {
+  NumberStringSchema,
+  GasOracleSchema,
+  DailyGasLimitSchema,
+  DailyGasUsedSchema,
+  DailyGasPriceSchema,
+} from '../core/types';
 import { Validators } from '../core/validators';
 
 export class GasTracker extends BaseModule {
@@ -37,10 +43,10 @@ export class GasTracker extends BaseModule {
   }
 
   /**
-    * Get Daily Average Gas Limit
-    * Retrieve historical daily average gas limit.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Daily Average Gas Limit
+   * Retrieve historical daily average gas limit.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getDailyAvgGasLimit(params: {
     /** Parameter startdate */
     startdate: string;
@@ -62,10 +68,10 @@ export class GasTracker extends BaseModule {
   }
 
   /**
-    * Get Daily Average Gas Price
-    * Retrieve daily average gas price statistics.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Daily Average Gas Price
+   * Retrieve daily average gas price statistics.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getDailyAvgGasPrice(params: {
     /** Parameter startdate */
     startdate: string;
@@ -87,10 +93,10 @@ export class GasTracker extends BaseModule {
   }
 
   /**
-    * Get Ethereum Daily Total Gas Used
-    * Retrieve the total gas used each day.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Ethereum Daily Total Gas Used
+   * Retrieve the total gas used each day.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getDailyGasUsed(params: {
     /** Parameter startdate */
     startdate: string;

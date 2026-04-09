@@ -204,13 +204,13 @@ describe('Stats Module', () => {
         enddate: '2023-11-22',
       });
 
-       expect(netUtilization).toEqual([
-         {
-           UTCDate: '2023-01-01',
-           unixTimeStamp: '1672531200',
-           networkUtilization: '85.5',
-         },
-       ]);
+      expect(netUtilization).toEqual([
+        {
+          UTCDate: '2023-01-01',
+          unixTimeStamp: '1672531200',
+          networkUtilization: '85.5',
+        },
+      ]);
     });
   });
 

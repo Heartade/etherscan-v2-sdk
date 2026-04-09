@@ -47,7 +47,10 @@ describe('Account Module', () => {
         result: '2000000000000000000000',
       });
 
-      const balance = await client.account.getBalance({ address: TEST_ADDRESSES.VITALIK, tag: 'latest' });
+      const balance = await client.account.getBalance({
+        address: TEST_ADDRESSES.VITALIK,
+        tag: 'latest',
+      });
       expect(balance).toBe(2000000000000000000000n);
     });
 
@@ -67,7 +70,7 @@ describe('Account Module', () => {
 
       const balances = await client.account.getBalance({
         address: `${TEST_ADDRESSES.VITALIK},${TEST_ADDRESSES.CONTRACT}`,
-        tag: 'latest'
+        tag: 'latest',
       });
 
       expect(balances).toEqual({
@@ -77,8 +80,9 @@ describe('Account Module', () => {
     });
 
     it('should reject more than 20 addresses', async () => {
-      const addresses = Array.from({ length: 21 }, (_, i) =>
-        `0x${i.toString().padStart(40, '0')}`
+      const addresses = Array.from(
+        { length: 21 },
+        (_, i) => `0x${i.toString().padStart(40, '0')}`
       ).join(',');
 
       await expect(client.account.getBalance({ address: addresses })).rejects.toThrow(
@@ -104,7 +108,10 @@ describe('Account Module', () => {
         ],
       });
 
-      const balances = await client.account.getBalances([TEST_ADDRESSES.VITALIK, TEST_ADDRESSES.CONTRACT]);
+      const balances = await client.account.getBalances([
+        TEST_ADDRESSES.VITALIK,
+        TEST_ADDRESSES.CONTRACT,
+      ]);
 
       expect(balances).toEqual({
         [TEST_ADDRESSES.VITALIK]: 1000000000000000000n,
@@ -135,12 +142,16 @@ describe('Account Module', () => {
     });
 
     it('should throw on empty addresses array', async () => {
-      await expect(client.account.getBalances([])).rejects.toThrow('At least one address is required');
+      await expect(client.account.getBalances([])).rejects.toThrow(
+        'At least one address is required'
+      );
     });
 
     it('should throw on too many addresses', async () => {
       const addresses = Array.from({ length: 21 }, () => TEST_ADDRESSES.VITALIK);
-      await expect(client.account.getBalances(addresses)).rejects.toThrow('Cannot query more than 20 addresses at once');
+      await expect(client.account.getBalances(addresses)).rejects.toThrow(
+        'Cannot query more than 20 addresses at once'
+      );
     });
   });
 

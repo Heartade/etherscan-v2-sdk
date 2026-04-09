@@ -170,13 +170,13 @@ describe('Block Module', () => {
         enddate: '2023-11-22',
       });
 
-       expect(avgBlockTime).toEqual([
-         {
-           UTCDate: '2023-01-01',
-           unixTimeStamp: '1672531200',
-           blockTime_sec: '15.5',
-         },
-       ]);
+      expect(avgBlockTime).toEqual([
+        {
+          UTCDate: '2023-01-01',
+          unixTimeStamp: '1672531200',
+          blockTime_sec: '15.5',
+        },
+      ]);
     });
   });
 

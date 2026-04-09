@@ -1,6 +1,13 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { EtherscanClient } from '../src/client';
-import { APIError, RateLimitError, ValidationError, EtherscanError, UnsupportedChainError, PlanUpgradeRequired } from '../src/core/errors';
+import {
+  APIError,
+  RateLimitError,
+  ValidationError,
+  EtherscanError,
+  UnsupportedChainError,
+  PlanUpgradeRequired,
+} from '../src/core/errors';
 import { resetMocks, mockFetchResponse, mockResponses, TEST_ADDRESSES } from './setup';
 
 describe('Error Handling', () => {

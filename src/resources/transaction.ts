@@ -12,9 +12,13 @@ export class Transaction extends BaseModule {
     /** The transaction hash to query. */
     txhash: string;
   }): Promise<z.infer<typeof TransactionStatusSchema>>;
-  async getStatus(txhashOrParams: string | {
-    txhash: string;
-  }): Promise<z.infer<typeof TransactionStatusSchema>> {
+  async getStatus(
+    txhashOrParams:
+      | string
+      | {
+          txhash: string;
+        }
+  ): Promise<z.infer<typeof TransactionStatusSchema>> {
     const params = typeof txhashOrParams === 'string' ? { txhash: txhashOrParams } : txhashOrParams;
 
     // Validate transaction hash format
@@ -39,9 +43,13 @@ export class Transaction extends BaseModule {
     /** The transaction hash to query. */
     txhash: string;
   }): Promise<{ status: string }>;
-  async getReceiptStatus(txhashOrParams: string | {
-    txhash: string;
-  }): Promise<{ status: string }> {
+  async getReceiptStatus(
+    txhashOrParams:
+      | string
+      | {
+          txhash: string;
+        }
+  ): Promise<{ status: string }> {
     const params = typeof txhashOrParams === 'string' ? { txhash: txhashOrParams } : txhashOrParams;
 
     // Validate transaction hash format

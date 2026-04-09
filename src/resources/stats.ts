@@ -18,10 +18,10 @@ import { Validators } from '../core/validators';
 
 export class Stats extends BaseModule {
   /**
-    * Get Daily Network Transaction Fee
-    * Retrieves the total transaction fees paid to miners each day.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Daily Network Transaction Fee
+   * Retrieves the total transaction fees paid to miners each day.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getDailyTxnFee(params: {
     /** Parameter startdate */
     startdate: string;
@@ -57,10 +57,10 @@ export class Stats extends BaseModule {
   }
 
   /**
-    * Get Ether Historical Price
-    * Returns the historical price data for 1 ETH.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Ether Historical Price
+   * Returns the historical price data for 1 ETH.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getEthDailyPrice(params: {
     /** Parameter startdate */
     startdate: string;
@@ -96,10 +96,10 @@ export class Stats extends BaseModule {
   }
 
   /**
-    * Get Daily Average Network Difficulty
-    * Returns the historical mining difficulty data of the network.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Daily Average Network Difficulty
+   * Returns the historical mining difficulty data of the network.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getDailyAvgNetDifficulty(params: {
     /** Parameter startdate */
     startdate: string;
@@ -121,10 +121,10 @@ export class Stats extends BaseModule {
   }
 
   /**
-    * Get Daily Transaction Count
-    * Retrieves the daily number of transactions executed in the blockchain.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Daily Transaction Count
+   * Retrieves the daily number of transactions executed in the blockchain.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getDailyTx(params: {
     /** Parameter startdate */
     startdate: string;
@@ -146,10 +146,10 @@ export class Stats extends BaseModule {
   }
 
   /**
-    * Get Daily Average Network Hash Rate
-    * Retrieves the historical hash rate, reflecting the processing power of the network over time.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Daily Average Network Hash Rate
+   * Retrieves the historical hash rate, reflecting the processing power of the network over time.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getDailyAvgHashrate(params: {
     /** Parameter startdate */
     startdate: string;
@@ -185,10 +185,10 @@ export class Stats extends BaseModule {
   }
 
   /**
-    * Get Daily Network Utilization
-    * Retrieves the daily average percentage of gas used relative to the gas limit.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Daily Network Utilization
+   * Retrieves the daily average percentage of gas used relative to the gas limit.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getDailyNetUtilization(params: {
     /** Parameter startdate */
     startdate: string;
@@ -252,10 +252,10 @@ export class Stats extends BaseModule {
   }
 
   /**
-    * Get Daily New Address Count
-    * Retrieves the daily count of newly created addresses.
-    * @requires PRO API key - This endpoint requires a paid Etherscan API plan
-    */
+   * Get Daily New Address Count
+   * Retrieves the daily count of newly created addresses.
+   * @requires PRO API key - This endpoint requires a paid Etherscan API plan
+   */
   async getDailyNewAddress(params: {
     /** Parameter startdate */
     startdate: string;

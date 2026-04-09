@@ -480,20 +480,19 @@ describe('Transport', () => {
       const econnresetError = new Error('socket hang up ECONNRESET');
 
       // First call fails with ECONNRESET, second succeeds
-      (global.fetch as any)
-        .mockRejectedValueOnce(econnresetError)
-        .mockResolvedValueOnce({
-          ok: true,
-          status: 200,
-          headers: {
-            get: (header: string) => (header === 'content-type' ? 'application/json' : null),
-          },
-          text: async () => JSON.stringify({
+      (global.fetch as any).mockRejectedValueOnce(econnresetError).mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        headers: {
+          get: (header: string) => (header === 'content-type' ? 'application/json' : null),
+        },
+        text: async () =>
+          JSON.stringify({
             status: '1',
             message: 'OK',
             result: { test: 'recovered-from-econnreset' },
           }),
-        });
+      });
 
       const result = await transport.get({ module: 'test', action: 'retry' }, testSchema);
 
@@ -504,20 +503,19 @@ describe('Transport', () => {
     it('should retry on ETIMEDOUT error', async () => {
       const etimedoutError = new Error('request timeout ETIMEDOUT');
 
-      (global.fetch as any)
-        .mockRejectedValueOnce(etimedoutError)
-        .mockResolvedValueOnce({
-          ok: true,
-          status: 200,
-          headers: {
-            get: (header: string) => (header === 'content-type' ? 'application/json' : null),
-          },
-          text: async () => JSON.stringify({
+      (global.fetch as any).mockRejectedValueOnce(etimedoutError).mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        headers: {
+          get: (header: string) => (header === 'content-type' ? 'application/json' : null),
+        },
+        text: async () =>
+          JSON.stringify({
             status: '1',
             message: 'OK',
             result: { test: 'recovered-from-etimedout' },
           }),
-        });
+      });
 
       const result = await transport.get({ module: 'test', action: 'retry' }, testSchema);
 
@@ -528,20 +526,19 @@ describe('Transport', () => {
     it('should retry on ENOTFOUND error', async () => {
       const enotfoundError = new Error('DNS lookup failed ENOTFOUND');
 
-      (global.fetch as any)
-        .mockRejectedValueOnce(enotfoundError)
-        .mockResolvedValueOnce({
-          ok: true,
-          status: 200,
-          headers: {
-            get: (header: string) => (header === 'content-type' ? 'application/json' : null),
-          },
-          text: async () => JSON.stringify({
+      (global.fetch as any).mockRejectedValueOnce(enotfoundError).mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        headers: {
+          get: (header: string) => (header === 'content-type' ? 'application/json' : null),
+        },
+        text: async () =>
+          JSON.stringify({
             status: '1',
             message: 'OK',
             result: { test: 'recovered-from-enotfound' },
           }),
-        });
+      });
 
       const result = await transport.get({ module: 'test', action: 'retry' }, testSchema);
 
@@ -552,20 +549,19 @@ describe('Transport', () => {
     it('should retry on ECONNREFUSED error', async () => {
       const econnrefusedError = new Error('connection refused ECONNREFUSED');
 
-      (global.fetch as any)
-        .mockRejectedValueOnce(econnrefusedError)
-        .mockResolvedValueOnce({
-          ok: true,
-          status: 200,
-          headers: {
-            get: (header: string) => (header === 'content-type' ? 'application/json' : null),
-          },
-          text: async () => JSON.stringify({
+      (global.fetch as any).mockRejectedValueOnce(econnrefusedError).mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        headers: {
+          get: (header: string) => (header === 'content-type' ? 'application/json' : null),
+        },
+        text: async () =>
+          JSON.stringify({
             status: '1',
             message: 'OK',
             result: { test: 'recovered-from-econnrefused' },
           }),
-        });
+      });
 
       const result = await transport.get({ module: 'test', action: 'retry' }, testSchema);
 
@@ -589,15 +585,22 @@ describe('Transport', () => {
     it('should exhaust retries and throw error', async () => {
       // Use short retry delay to avoid test timeout
       // Transport params: chainId, apiKey, reqPerSec, timeout, maxRetries, retryDelay
-      const fastRetryTransport = new Transport(EvmChainId.MAINNET, 'test-api-key', 10, 30000, 3, 10);
+      const fastRetryTransport = new Transport(
+        EvmChainId.MAINNET,
+        'test-api-key',
+        10,
+        30000,
+        3,
+        10
+      );
       const persistentError = new Error('persistent ECONNRESET');
 
       // All attempts fail
       (global.fetch as any).mockRejectedValue(persistentError);
 
-      await expect(fastRetryTransport.get({ module: 'test', action: 'fail' }, testSchema)).rejects.toThrow(
-        'Network Error'
-      );
+      await expect(
+        fastRetryTransport.get({ module: 'test', action: 'fail' }, testSchema)
+      ).rejects.toThrow('Network Error');
 
       // Should try initial + 3 retries = 4 total attempts
       expect(global.fetch).toHaveBeenCalledTimes(4);
@@ -607,20 +610,19 @@ describe('Transport', () => {
       const abortError = new Error('The operation was aborted');
       abortError.name = 'AbortError';
 
-      (global.fetch as any)
-        .mockRejectedValueOnce(abortError)
-        .mockResolvedValueOnce({
-          ok: true,
-          status: 200,
-          headers: {
-            get: (header: string) => (header === 'content-type' ? 'application/json' : null),
-          },
-          text: async () => JSON.stringify({
+      (global.fetch as any).mockRejectedValueOnce(abortError).mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        headers: {
+          get: (header: string) => (header === 'content-type' ? 'application/json' : null),
+        },
+        text: async () =>
+          JSON.stringify({
             status: '1',
             message: 'OK',
             result: { test: 'recovered-from-abort' },
           }),
-        });
+      });
 
       const result = await transport.get({ module: 'test', action: 'retry' }, testSchema);
 
